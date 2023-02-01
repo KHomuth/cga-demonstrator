@@ -106,20 +106,20 @@ export default class Windmill extends THREE.Group {
 
     // Panel
     // -----
-    const panelGeometry = new THREE.BoxGeometry(8, 18, 1);
+    const panelGeometry = new THREE.BoxGeometry(7.5, 16, 1);
     const panel = new THREE.Mesh(panelGeometry,
         [panelMaterial, panelMaterial, panelMaterial, panelMaterial, panelMaterialTextured, panelMaterial]);
-    panel.position.set(0, 15.5, 2);
+    panel.position.set(0, 14.5, 2);
     panel.castShadow = true;
     this.add(panel);
 
     // Power Knob
     // ----------
-    const knobGeometry = new THREE.CylinderGeometry(1.8, 1.8, 1, 32);
-    const knobGripGeometry = new THREE.BoxGeometry(0.4, 1, 2).translate(0, 1, 0);
+    const knobGeometry = new THREE.CylinderGeometry(1.6, 1.6, 1, 32);
+    const knobGripGeometry = new THREE.BoxGeometry(0.35, 1, 2).translate(0, 1, 0);
     const powerKnob = new THREE.Mesh(knobGeometry, metalMaterial).add(new THREE.Mesh(knobGripGeometry, metalMaterial));
     powerKnob.rotation.set(THREE.MathUtils.degToRad(90), 0, 0);
-    powerKnob.position.set(0, 5.5, 0.5);
+    powerKnob.position.set(0, 4.5, 0.5);
     powerKnob.name = 'powerKnob';
     powerKnob.children[0].name = 'powerKnob';
     panel.add(powerKnob);
@@ -153,7 +153,7 @@ export default class Windmill extends THREE.Group {
     // Sound Knob
     // -----------
     const soundKnob = powerKnob.clone();
-    soundKnob.position.set(0, -5.5, 0.5);
+    soundKnob.position.set(0, -4.5, 0.5);
     soundKnob.name = 'soundKnob';
     soundKnob.children[0].name = 'soundKnob';
     panel.add(soundKnob);

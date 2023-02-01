@@ -180,8 +180,8 @@ export default class Physics {
     const offset = new CANNON.Vec3(offsetX, offsetY, offsetZ);
     const offset2 = new CANNON.Vec3(offsetX = 0, offsetY = 32, offsetZ = 0);
     const offset3 = new CANNON.Vec3(offsetX = 0, offsetY = 0.5, offsetZ = 0);
-    const offsetBox = new CANNON.Vec3(offsetX = 0, offsetY = 15.5, offsetZ = 2);
-    const dimension = new CANNON.Vec3(4, 9, 0.5);
+    const offsetBox = new CANNON.Vec3(offsetX = 0, offsetY = 14.5, offsetZ = 2);
+    const dimension = new CANNON.Vec3(3.75, 8, 0.5);
     const rotation = new CANNON.Quaternion().setFromEuler(eulerX, eulerY, eulerZ, "XYZ");
     body.addShape(new CANNON.Cylinder(upperRadius, lowerRadius, height, segments), offset, rotation);
     body.addShape(new CANNON.Cylinder(upperRadius = 1.2, lowerRadius = 2.2, height = 63.5, segments = 8), offset2, rotation);
