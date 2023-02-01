@@ -53,7 +53,7 @@ function main() {
   const windmillFromFile = new WindmillFromFile(); //einbinden und verwenden der Blender Windmill datei
   windmillFromFile.position.set(30, 0, 0);
   windmillFromFile.scale.set(6.9, 6.9, 6.9);
-  windmillFromFile.rotateY(THREE.MathUtils.degToRad(180));
+  //windmillFromFile.rotateY(THREE.MathUtils.degToRad(180));
   windmillFromFile.addPhysics();
   window.scene.add(windmillFromFile);
 

@@ -44,7 +44,7 @@ export default class WindmillFromFile extends THREE.Group {
         thisWindmill.animations.set(gltf.animations[i].name, action);
         console.log(gltf.animations[i].name);
       }
-      //gltf.scene.position.set(0, -42.5, 0); // Shift windmill down half its size
+      gltf.scene.rotation.set(0, THREE.MathUtils.degToRad(180), 0); // Shift windmill down half its size
       thisWindmill.add(gltf.scene);
       thisWindmill.loadingDone = true;
     });
