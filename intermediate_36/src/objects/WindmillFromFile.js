@@ -34,11 +34,11 @@ export default class WindmillFromFile extends THREE.Group {
       thisWindmill.animationMixer = new THREE.AnimationMixer(gltf.scene);
       for (let i = 0; i < gltf.animations.length; i++) {
         let action = thisWindmill.animationMixer.clipAction(gltf.animations[i]);
-        if (gltf.animations[i].name != 'turnarround' || gltf.animations[i].name != 'turnarround_fast') {
+        if (gltf.animations[i].name == 'turnarround' || gltf.animations[i].name == 'turnarround_fast') {
+          action.setLoop(THREE.LoopRepeat);
+        } else {
           action.setLoop(THREE.LoopOnce);
           action.clampWhenFinished = true;
-        } else {
-          action.setLoop(THREE.LoopRepeat);
         }
 
         thisWindmill.animations.set(gltf.animations[i].name, action);
