@@ -74,7 +74,7 @@ export function executeRaycast() {
         firstHit.parentWindmill.animations.get('turnarround_fast').stop();
       }
     } else if (firstHit.name === 'Button_3') {
-      firstHit.parentWindmill.state.sound = !firstHit.parentWindmill.state.sound;
+      /*firstHit.parentWindmill.state.sound = !firstHit.parentWindmill.state.sound;
 
       if (firstHit.parentWindmill.state.sound && firstHit.parentWindmill.state.powerOn) {
         document.speaker_noise_2.volume = 1.0;
@@ -86,7 +86,7 @@ export function executeRaycast() {
 
         firstHit.parentWindmill.animations.get('Button_3_on').stop();
         firstHit.parentWindmill.animations.get('Button_3_off').play();
-      }
+      }*/
     }
   }
 }
