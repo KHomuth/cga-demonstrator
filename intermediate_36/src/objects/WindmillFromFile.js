@@ -21,7 +21,7 @@ export default class WindmillFromFile extends THREE.Group {
 
   load(thisWindmill) {
 
-    this.gltfLoader.load('src/models/windmillFromBlender.gltf', function (gltf) {
+    this.gltfLoader.load('src/models/windmillFromFile.gltf', function (gltf) {
 
       gltf.scene.traverse(function (child) {
         if (child.isMesh) {

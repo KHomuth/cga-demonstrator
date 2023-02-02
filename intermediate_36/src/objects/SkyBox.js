@@ -28,7 +28,7 @@ export default class SkyBox extends THREE.Group {
             return baseFilename + "_" + side + fileType;
         
         });
-        
+
         
         return pathStings;
         
@@ -41,12 +41,13 @@ export default class SkyBox extends THREE.Group {
         const materialArray = skyboxImagepaths.map(image => {
         
             let texture = new THREE.TextureLoader().load(image);
+
+            texture.receiveShadow = true;
         
-        
-            return new THREE.MeshBasicMaterial({ map: texture, side: THREE.BackSide }); 
+            return new THREE.MeshBasicMaterial({ map: texture, side: THREE.BackSide });
         
         });
-        
+
         return materialArray;
         
       }

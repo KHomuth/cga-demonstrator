@@ -56,30 +56,38 @@ function main() {
   windmillFromFile.addPhysics();
   window.scene.add(windmillFromFile);
 
-  /*const trees = new Trees(); //einbinden und verwenden der Windmill.js
-  trees.position.set(-90, 0, -90);
-  trees.scale.set(1.2, 1.2, 1.2);
+  //Little LP Trees
+  //---------------
+  const trees = new Trees();
+  trees.position.set(-170, 0, -160);
+  trees.scale.set(3, 3, 3);
+  trees.rotation.set(0, THREE.MathUtils.degToRad(110), 0);
   window.scene.add(trees);
 
   const trees2 = trees.clone(); //einbinden und verwenden der Windmill.js
-  trees2.position.set(-90, 0, 90);
+  trees2.position.set(-150, 0, 180);
   trees2.rotation.set(0, THREE.MathUtils.degToRad(90), 0);
   window.scene.add(trees2);
 
   const trees3 = trees.clone(); //einbinden und verwenden der Windmill.js
-  trees3.position.set(90, 0, -90);
-  trees3.rotation.set(0, THREE.MathUtils.degToRad(90), 0);
+  trees3.position.set(170, 0, -160);
+  trees3.rotation.set(0, THREE.MathUtils.degToRad(100), 0);
   window.scene.add(trees3);
 
   const trees4 = trees.clone(); //einbinden und verwenden der Windmill.js
-  trees4.position.set(90, 0, 90);
-  trees4.rotation.set(0, THREE.MathUtils.degToRad(90), 0);
-  window.scene.add(trees4);*/
+  trees4.position.set(160, 0, 170);
+  trees4.rotation.set(0, THREE.MathUtils.degToRad(70), 0);
+  window.scene.add(trees4);
 
   const floor = new Floor();
   floor.position.set(0, 0, 0);
   floor.scale.set(2.5, 2, 2.5);
   window.scene.add(floor);
+
+
+  const skybox = new SkyBox();
+  skybox.position.set(0, 120, 0);
+  window.scene.add(skybox);
 
   const ambientLight = new THREE.AmbientLight(0xffffff);
   ambientLight.intensity = 0.5;
@@ -88,7 +96,7 @@ function main() {
   const spotLight = new THREE.SpotLight(0xffffff);
   spotLight.position.set(100, 100, 100);
   spotLight.intensity = 1;
-  spotLight.target = floor;
+  spotLight.target = floor && skybox;
   spotLight.angle = THREE.MathUtils.degToRad(30);
   spotLight.penumbra = 1.0;
   spotLight.castShadow = true;
@@ -98,14 +106,10 @@ function main() {
   spotLight.shadow.camera.far = 500;
   window.scene.add(spotLight);
 
-  const skybox = new SkyBox();
-  skybox.position.set(0, 120, 0);
-  window.scene.add(skybox);
-
   const gui = new DAT.GUI();
-  gui.add(spotLight.position, 'x', 0, 200);
-  gui.add(spotLight.position, 'y', 0, 200);
-  gui.add(spotLight.position, 'z', 0, 200);
+  gui.add(spotLight.position, 'x', 0, 500);
+  gui.add(spotLight.position, 'y', 0, 500);
+  gui.add(spotLight.position, 'z', 0, 500);
 
   const orbitControls = new CONTROLS.OrbitControls(window.camera, window.renderer.domElement);
   orbitControls.target = new THREE.Vector3(0, 0, 0);      // ersetzt window.camera.lookAt(0, 0, 0)
