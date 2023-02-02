@@ -354,7 +354,7 @@ export default class Windmill extends THREE.Group {
     window.physics.addConvexPolyhedron(this, 3, positions, indices, true);
     */
 
-    window.physics.add3Cylinder(this, 4, 12, 12, 34, 12, 0, 80, 0);
+    window.physics.add3Cylinder(this, 3, 12, 12, 34, 12, 0, 80, 0);
 
 
 

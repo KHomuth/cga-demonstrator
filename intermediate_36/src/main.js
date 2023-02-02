@@ -20,7 +20,7 @@ import {keyDownAction, keyUpAction} from './eventfunctions/executeKeyAction.js';
 function main() {
 
   window.scene = new THREE.Scene();
-  window.scene.add(new THREE.AxesHelper(50));
+  //window.scene.add(new THREE.AxesHelper(50));
 
   window.camera = new THREE.PerspectiveCamera(
       45,
@@ -36,13 +36,20 @@ function main() {
   window.renderer.setClearColor(new THREE.Color(0xffffff));
   window.renderer.shadowMap.enabled = true;
 
-  window.physics = new Physics(true);
+  window.physics = new Physics(false);
   window.physics.setup(0, -200, 0, 1 / 120, true);
 
   window.audioListener = new THREE.AudioListener();
   window.camera.add(window.audioListener);
 
   document.getElementById('3d_content').appendChild(window.renderer.domElement);
+
+  //Load background texture
+  /*const loader = new THREE.TextureLoader();
+  loader.load('https://upload.wikimedia.org/wikipedia/commons/9/9b/Lochgoin_from_the_air_%28geograph_6051696%29.jpg' , function(texture)
+  {
+    scene.background = texture;
+  });*/
 
   const windmill = new Windmill(); //einbinden und verwenden der Windmill.js
   windmill.position.set(-30, 0, 0);
@@ -57,16 +64,25 @@ function main() {
   windmillFromFile.addPhysics();
   window.scene.add(windmillFromFile);
 
-  /*const trees = new Trees(); //einbinden und verwenden der Windmill.js
-  trees.position.set(-90, 0, 0);
-  trees.scale.set(2, 2, 2);
+  const trees = new Trees(); //einbinden und verwenden der Windmill.js
+  trees.position.set(-90, 0, -90);
+  trees.scale.set(1.2, 1.2, 1.2);
   window.scene.add(trees);
 
-  const trees2 = new Trees(); //einbinden und verwenden der Windmill.js
-  trees2.position.set(-90, 0, 50);
-  trees2.scale.set(2, 2, 2);
-  trees2.rotation.set(THREE.MathUtils.degToRad(0), 2, 0);
-  window.scene.add(trees2);*/
+  const trees2 = trees.clone(); //einbinden und verwenden der Windmill.js
+  trees2.position.set(-90, 0, 90);
+  trees2.rotation.set(0, THREE.MathUtils.degToRad(90), 0);
+  window.scene.add(trees2);
+
+  const trees3 = trees.clone(); //einbinden und verwenden der Windmill.js
+  trees3.position.set(90, 0, -90);
+  trees3.rotation.set(0, THREE.MathUtils.degToRad(90), 0);
+  window.scene.add(trees3);
+
+  const trees4 = trees.clone(); //einbinden und verwenden der Windmill.js
+  trees4.position.set(90, 0, 90);
+  trees4.rotation.set(0, THREE.MathUtils.degToRad(90), 0);
+  window.scene.add(trees4);
 
   const floor = new Floor();
   floor.position.set(0, 0, 0);
