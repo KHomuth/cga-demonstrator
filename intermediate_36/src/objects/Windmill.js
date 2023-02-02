@@ -41,7 +41,7 @@ export default class Windmill extends THREE.Group {
     });
     //const sound = new THREE.PositionalAudio(window.audioListener);
     document.speaker_noise = document.createElement('audio');
-    document.speaker_noise.src = 'src/sounds/Naughty-By-Nature-Hip-Hop-Hooray.mp3';
+    document.speaker_noise.src = 'src/sounds/windpower.mp3';
     document.speaker_noise.loop = true;
 
     const metalMaterial = new THREE.MeshStandardMaterial({
@@ -172,7 +172,6 @@ export default class Windmill extends THREE.Group {
     // ------------
     const wheel1Geometry = new THREE.TorusKnotGeometry(20, 0.75, 128, 3, 2, 2);
     const wheel1 = new THREE.Mesh(wheel1Geometry, wheelMaterial);
-    //wheel1.position.set(-5, 80, -5);
 
     let box1 = new THREE.Mesh(new THREE.BoxGeometry(35, 60, 60).scale(1.1, 1.1, 1.1).translate(14, 0, 0));
 
@@ -340,8 +339,6 @@ export default class Windmill extends THREE.Group {
       [-1.5, 0, -1.5],  // 6
       [1.5, 0, -1.5]    // 7
     ];
-
-
     const indices = [
       [0, 1, 2, 3],  // front
       [1, 5, 6, 2],  // left
@@ -350,14 +347,8 @@ export default class Windmill extends THREE.Group {
       [3, 2, 6, 7],  // bottom
       [5, 4, 7, 6]   // back
     ];
-
     window.physics.addConvexPolyhedron(this, 3, positions, indices, true);
     */
-
     window.physics.add3Cylinder(this, 3, 12, 12, 34, 12, 0, 80, 0);
-
-
-
-
   }
 }

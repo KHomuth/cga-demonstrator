@@ -55,26 +55,6 @@ export default class WindmillFromFile extends THREE.Group {
     if (this.loadingDone === false) {
       window.setTimeout(this.addPhysics.bind(this), 100);
     } else {
-      /*const positions = [
-        [0.5, 95, 0.5],   // 0
-        [-0.5, 95, 0.5],  // 1
-        [-1.5, 0, 1.5],   // 2
-        [1.5, 0, 1.5],    // 3
-        [0.5, 95, -0.5],  // 4
-        [-0.5, 95, -0.5], // 5
-        [-1.5, 0, -1.5],  // 6
-        [1.5, 0, -1.5]    // 7
-      ];
-      const indices = [
-        [0, 1, 2, 3],  // front
-        [1, 5, 6, 2],  // left
-        [4, 0, 3, 7],  // right
-        [4, 5, 1, 0],  // top
-        [3, 2, 6, 7],  // bottom
-        [5, 4, 7, 6]   // back
-      ];
-
-      window.physics.addConvexPolyhedron(this, 3, positions, indices, true);*/
       window.physics.add3Cylinder(this, 3, 10, 10, 34, 12, 0, 80, 0);
     }
   }

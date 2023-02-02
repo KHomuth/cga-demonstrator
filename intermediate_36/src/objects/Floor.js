@@ -6,10 +6,9 @@ export default class Floor extends THREE.Group {
     super();
 
     const floorGeometry = new THREE.PlaneGeometry(200, 200);
-    const floorMaterial = new THREE.MeshStandardMaterial({color: 0xffffff, roughness: 0.3});
+    const floorMaterial = new THREE.MeshStandardMaterial({color: 0xffffff, roughness: 0.0});
 
-    const floorTexture = new THREE.TextureLoader().load('src/images/grasslight-small.jpg');
-    floorTexture.repeat.set(4, 4);
+    const floorTexture = new THREE.TextureLoader().load('src/images/floor.jpg');
     floorTexture.wrapS = THREE.RepeatWrapping;
     floorTexture.wrapT = THREE.RepeatWrapping;
     floorMaterial.map = floorTexture;

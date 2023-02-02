@@ -45,27 +45,18 @@ function main() {
 
   document.getElementById('3d_content').appendChild(window.renderer.domElement);
 
-  //Load background texture
-  /*const loader = new THREE.TextureLoader();
-  loader.load('https://upload.wikimedia.org/wikipedia/commons/9/9b/Lochgoin_from_the_air_%28geograph_6051696%29.jpg' , function(texture)
-  {
-    scene.background = texture;
-  });*/
-
   const windmill = new Windmill(); //einbinden und verwenden der Windmill.js
   windmill.position.set(-30, 0, 0);
-  //windmill.rotation.set(THREE.MathUtils.degToRad(-90), 0, 0);
   windmill.addPhysics();
   window.scene.add(windmill);
 
   const windmillFromFile = new WindmillFromFile(); //einbinden und verwenden der Blender Windmill datei
   windmillFromFile.position.set(30, 0, 0);
   windmillFromFile.scale.set(6.9, 6.9, 6.9);
-  //windmillFromFile.rotateY(THREE.MathUtils.degToRad(180));
   windmillFromFile.addPhysics();
   window.scene.add(windmillFromFile);
 
-  const trees = new Trees(); //einbinden und verwenden der Windmill.js
+  /*const trees = new Trees(); //einbinden und verwenden der Windmill.js
   trees.position.set(-90, 0, -90);
   trees.scale.set(1.2, 1.2, 1.2);
   window.scene.add(trees);
@@ -83,11 +74,12 @@ function main() {
   const trees4 = trees.clone(); //einbinden und verwenden der Windmill.js
   trees4.position.set(90, 0, 90);
   trees4.rotation.set(0, THREE.MathUtils.degToRad(90), 0);
-  window.scene.add(trees4);
+  window.scene.add(trees4);*/
 
-  //const floor = new Floor();
-  //floor.position.set(0, 0, 0);
-  //window.scene.add(floor);
+  const floor = new Floor();
+  floor.position.set(0, 0, 0);
+  floor.scale.set(2.5, 2, 2.5);
+  window.scene.add(floor);
 
   const ambientLight = new THREE.AmbientLight(0xffffff);
   ambientLight.intensity = 0.5;
@@ -95,20 +87,19 @@ function main() {
 
   const spotLight = new THREE.SpotLight(0xffffff);
   spotLight.position.set(100, 100, 100);
-  spotLight.intensity = 0.8;
-  //spotLight.target = floor;
+  spotLight.intensity = 1;
+  spotLight.target = floor;
   spotLight.angle = THREE.MathUtils.degToRad(30);
   spotLight.penumbra = 1.0;
   spotLight.castShadow = true;
-  spotLight.shadow.mapSize.set(1024, 1024);
+  spotLight.shadow.mapSize.set(2048, 2048);
   spotLight.shadow.camera.aspect = 1;
   spotLight.shadow.camera.near = 10;
   spotLight.shadow.camera.far = 500;
-  //window.scene.add(new THREE.CameraHelper(spotLight.shadow.camera)); //Visualisierung der Schattenquelle
   window.scene.add(spotLight);
 
   const skybox = new SkyBox();
-  skybox.position.set(0, 125, 0);
+  skybox.position.set(0, 120, 0);
   window.scene.add(skybox);
 
   const gui = new DAT.GUI();
@@ -118,7 +109,7 @@ function main() {
 
   const orbitControls = new CONTROLS.OrbitControls(window.camera, window.renderer.domElement);
   orbitControls.target = new THREE.Vector3(0, 0, 0);      // ersetzt window.camera.lookAt(0, 0, 0)
-  orbitControls.update();                                          // Aktivieren/Übernehmen des Targets
+  orbitControls.update();                                 // Aktivieren/Übernehmen des Targets
 
 
   const clock = new THREE.Clock();

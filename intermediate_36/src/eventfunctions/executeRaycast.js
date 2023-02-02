@@ -3,7 +3,7 @@ import * as THREE from 'three';
 window.raycaster = new THREE.Raycaster();
 
 document.speaker_noise_2 = document.createElement('audio');
-document.speaker_noise_2.src = 'src/sounds/Naughty-By-Nature-Hip-Hop-Hooray.mp3';
+document.speaker_noise_2.src = 'src/sounds/windpower.mp3';
 document.speaker_noise_2.loop = true;
 
 export function executeRaycast() {
