@@ -25,9 +25,10 @@ export default class WindmillFromFile extends THREE.Group {
 
       gltf.scene.traverse(function (child) {
         if (child.isMesh) {
+          console.log(child.name);
           child.parentWindmill = thisWindmill;
         }
-        if (child.name === 'Mesh' || child.name === 'Mesh_1' || child.name === 'topCenterTube' || child.name === 'base' || child.name === 'blades') {
+        if (child.name === 'Mesh' || child.name === 'Mesh_1' || child.name === 'topCenterTube' || child.name === 'base_1' || child.name === 'base_2' || child.name === 'blades') {
           child.castShadow = true;
         }
       });
@@ -43,7 +44,7 @@ export default class WindmillFromFile extends THREE.Group {
         }
 
         thisWindmill.animations.set(gltf.animations[i].name, action);
-        console.log(gltf.animations[i].name);
+        //console.log(gltf.animations[i].name);
       }
       gltf.scene.rotation.set(0, THREE.MathUtils.degToRad(180), 0);
       gltf.scene.position.set(0, 0, 0);// Shift windmill down half its size

@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import {GLTFLoader} from 'gltfloader';
 
-export default class Trees extends THREE.Group {
+export default class Tree1 extends THREE.Group {
 
   constructor() {
     super();
@@ -12,7 +12,7 @@ export default class Trees extends THREE.Group {
 
   load(thisPlant) {
 
-    this.gltfLoader.load('src/models/trees.gltf', function (gltf) {
+    this.gltfLoader.load('src/models/tree1.gltf', function (gltf) {
 
       gltf.scene.traverse(function (child) {
 
@@ -26,25 +26,11 @@ export default class Trees extends THREE.Group {
       thisPlant.loadingDone = true;
     });
   }
-
-  /*addPhysics() {
+  addPhysics() {
     if (this.loadingDone === false) {
       window.setTimeout(this.addPhysics.bind(this), 100);
     } else {
-      window.physics.addCylinder(this, 5, 20, 10, 150, 12);
+      window.physics.addTreeCylinder(this, 6, 50, 7, 90, 12, 0, 45, 0);
     }
-  }*/
-
-  /*addSound() {
-    const sound = new THREE.PositionalAudio(window.audioListener);
-    const audioLoader = new THREE.AudioLoader();
-    audioLoader.load('src/sounds/wood.wav', function (buffer) {
-      sound.setBuffer(buffer);
-      sound.setRefDistance(20);
-      sound.setVolume(0.5);
-      sound.setLoop(true);
-      sound.play();
-    });
-    this.add(sound);
-  }*/
+  }
 }

@@ -91,7 +91,7 @@ export default class Physics {
     this.addPair(object, body);
   }
 
-  addCylinder(object, mass, upperRadius, lowerRadius, height, segments,
+  addTreeCylinder(object, mass, upperRadius, lowerRadius, height, segments,
               offsetX = 0, offsetY = 0, offsetZ = 0,
               eulerX = 0, eulerY = 0, eulerZ = 0,
               sleeping = false) {

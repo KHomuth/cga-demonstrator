@@ -10,7 +10,8 @@ import WindmillFromFile from './objects/WindmillFromFile.js';
 import Floor from './objects/Floor.js';
 import SkyBox from './objects/SkyBox.js';
 import Physics from './physics/Physics.js';
-import Trees from './objects/Trees.js';
+import Tree1 from './objects/Tree1.js';
+import Tree2 from './objects/Tree2.js';
 
 //Event function
 import {updateAspectRatio} from './eventfunctions/updateAspectRatio.js';
@@ -37,8 +38,8 @@ function main() {
   window.renderer.setClearColor(new THREE.Color(0xffffff));
   window.renderer.shadowMap.enabled = true;
 
-  window.physics = new Physics(false);
-  window.physics.setup(0, -200, 0, 1 / 120, true);
+  window.physics = new Physics(true);
+  window.physics.setup(0, -200, 0, 1 / 240, true);
 
   window.audioListener = new THREE.AudioListener();
   window.camera.add(window.audioListener);
@@ -58,26 +59,31 @@ function main() {
 
   //Little LP Trees
   //---------------
-  const trees = new Trees();
-  trees.position.set(-170, 0, -160);
-  trees.scale.set(3, 3, 3);
-  trees.rotation.set(0, THREE.MathUtils.degToRad(110), 0);
-  window.scene.add(trees);
+  const tree1 = new Tree1();
+  tree1.position.set(-190, 0, -160);
+  tree1.scale.set(3, 3, 3);
+  tree1.rotation.set(0, THREE.MathUtils.degToRad(110), 0);
+  tree1.addPhysics();
+  window.scene.add(tree1);
 
-  const trees2 = trees.clone(); //einbinden und verwenden der Windmill.js
-  trees2.position.set(-150, 0, 180);
-  trees2.rotation.set(0, THREE.MathUtils.degToRad(90), 0);
-  window.scene.add(trees2);
+  const tree3 = tree1.clone(); //einbinden und verwenden der Windmill.js
+  tree3.position.set(170, 0, -190);
+  tree3.rotation.set(0, THREE.MathUtils.degToRad(100), 0);
+  tree3.addPhysics();
+  window.scene.add(tree3);
 
-  const trees3 = trees.clone(); //einbinden und verwenden der Windmill.js
-  trees3.position.set(170, 0, -160);
-  trees3.rotation.set(0, THREE.MathUtils.degToRad(100), 0);
-  window.scene.add(trees3);
+  const tree2 = new Tree2();
+  tree2.position.set(-170, 0, 160);
+  tree2.scale.set(3, 3, 3);
+  tree2.rotation.set(0, THREE.MathUtils.degToRad(110), 0);
+  tree2.addPhysics();
+  window.scene.add(tree2);
 
-  const trees4 = trees.clone(); //einbinden und verwenden der Windmill.js
-  trees4.position.set(160, 0, 170);
-  trees4.rotation.set(0, THREE.MathUtils.degToRad(70), 0);
-  window.scene.add(trees4);
+  const tree4 = tree2.clone(); //einbinden und verwenden der Windmill.js
+  tree4.position.set(160, 0, 180);
+  tree4.rotation.set(0, THREE.MathUtils.degToRad(70), 0);
+  tree4.addPhysics();
+  window.scene.add(tree4);
 
   const floor = new Floor();
   floor.position.set(0, 0, 0);
@@ -107,9 +113,9 @@ function main() {
   window.scene.add(spotLight);
 
   const gui = new DAT.GUI();
-  gui.add(spotLight.position, 'x', 0, 500);
-  gui.add(spotLight.position, 'y', 0, 500);
-  gui.add(spotLight.position, 'z', 0, 500);
+  gui.add(spotLight.position, 'x', 0, 200);
+  gui.add(spotLight.position, 'y', 0, 200);
+  gui.add(spotLight.position, 'z', 0, 200);
 
   const orbitControls = new CONTROLS.OrbitControls(window.camera, window.renderer.domElement);
   orbitControls.target = new THREE.Vector3(0, 0, 0);      // ersetzt window.camera.lookAt(0, 0, 0)
