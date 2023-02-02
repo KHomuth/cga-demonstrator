@@ -8,6 +8,7 @@ import * as TWEEN from 'tween';
 import Windmill from './objects/Windmill.js';
 import WindmillFromFile from './objects/WindmillFromFile.js';
 import Floor from './objects/Floor.js';
+import SkyBox from './objects/SkyBox.js';
 import Physics from './physics/Physics.js';
 import Trees from './objects/Trees.js';
 
@@ -68,9 +69,9 @@ function main() {
   trees2.rotation.set(THREE.MathUtils.degToRad(0), 2, 0);
   window.scene.add(trees2);*/
 
-  const floor = new Floor();
-  floor.position.set(0, 0, 0);
-  window.scene.add(floor);
+  //const floor = new Floor();
+  //floor.position.set(0, 0, 0);
+  //window.scene.add(floor);
 
   const ambientLight = new THREE.AmbientLight(0xffffff);
   ambientLight.intensity = 0.5;
@@ -79,7 +80,7 @@ function main() {
   const spotLight = new THREE.SpotLight(0xffffff);
   spotLight.position.set(100, 100, 100);
   spotLight.intensity = 0.8;
-  spotLight.target = floor;
+  //spotLight.target = floor;
   spotLight.angle = THREE.MathUtils.degToRad(30);
   spotLight.penumbra = 1.0;
   spotLight.castShadow = true;
@@ -90,6 +91,9 @@ function main() {
   //window.scene.add(new THREE.CameraHelper(spotLight.shadow.camera)); //Visualisierung der Schattenquelle
   window.scene.add(spotLight);
 
+  const skybox = new SkyBox();
+  skybox.position.set(0, 125, 0);
+  window.scene.add(skybox);
 
   const gui = new DAT.GUI();
   gui.add(spotLight.position, 'x', 0, 200);

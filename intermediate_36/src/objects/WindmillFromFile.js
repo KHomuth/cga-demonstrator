@@ -12,7 +12,8 @@ export default class WindmillFromFile extends THREE.Group {
     this.state = {
       turnarround: false,
       powerOn: false,
-      sound: false,
+      soundPlaying: false,
+      soundLoud: false,
       fast: false
     };
     this.load(this);

@@ -34,6 +34,7 @@ export function executeRaycast() {
     if (firstHit.name === 'Button_1') {
       firstHit.parentWindmill.state.powerOn = !firstHit.parentWindmill.state.powerOn;
       firstHit.parentWindmill.state.turnarround = !firstHit.parentWindmill.state.turnarround;
+      firstHit.parentWindmill.state.soundPlaying = !firstHit.parentWindmill.state.soundPlaying;
 
       if (firstHit.parentWindmill.state.powerOn && firstHit.parentWindmill.state.turnarround) {
         firstHit.parentWindmill.animations.get('Button_1_off').stop();
@@ -74,9 +75,9 @@ export function executeRaycast() {
         firstHit.parentWindmill.animations.get('turnarround_fast').stop();
       }
     } else if (firstHit.name === 'Button_3') {
-      /*firstHit.parentWindmill.state.sound = !firstHit.parentWindmill.state.sound;
-
-      if (firstHit.parentWindmill.state.sound && firstHit.parentWindmill.state.powerOn) {
+      firstHit.parentWindmill.state.soundLoud = !firstHit.parentWindmill.state.soundLoud;
+      
+      if (firstHit.parentWindmill.state.soundLoud && firstHit.parentWindmill.state.soundPlaying) {
         document.speaker_noise_2.volume = 1.0;
         firstHit.parentWindmill.animations.get('Button_3_on').play();
         firstHit.parentWindmill.animations.get('Button_3_off').stop();
@@ -86,7 +87,7 @@ export function executeRaycast() {
 
         firstHit.parentWindmill.animations.get('Button_3_on').stop();
         firstHit.parentWindmill.animations.get('Button_3_off').play();
-      }*/
+      }
     }
   }
 }
