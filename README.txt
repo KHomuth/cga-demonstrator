@@ -1,7 +1,15 @@
-cga-demonstrator CGA HAW WS22/23
+***************************
+Kevin Homuth	2217697
+Patrick Majorel	2217305
+***************************
+
+
+CGA-demonstrator CGA HAW WS22/23
+
 
 This repository contains the THREE.js demonstrator created for the course CGA.
 To run the project start a lokal server and open the Index.html in Google Chrome.
+
 
 Functionalities:
 There are two windmill-objects in the scene, both with interactive panels.

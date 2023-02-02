@@ -30,7 +30,7 @@ export default class Tree1 extends THREE.Group {
     if (this.loadingDone === false) {
       window.setTimeout(this.addPhysics.bind(this), 100);
     } else {
-      window.physics.addTreeCylinder(this, 6, 50, 7, 90, 12, 0, 45, 0);
+      window.physics.addTreeCylinder(this, 6, 50, 7, 90, 32, 0, 45, 0);
     }
   }
 }

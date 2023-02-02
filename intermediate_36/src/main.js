@@ -38,7 +38,7 @@ function main() {
   window.renderer.setClearColor(new THREE.Color(0xffffff));
   window.renderer.shadowMap.enabled = true;
 
-  window.physics = new Physics(true);
+  window.physics = new Physics(false);
   window.physics.setup(0, -200, 0, 1 / 240, true);
 
   window.audioListener = new THREE.AudioListener();
@@ -101,7 +101,7 @@ function main() {
 
   const spotLight = new THREE.SpotLight(0xffffff);
   spotLight.position.set(100, 100, 100);
-  spotLight.intensity = 1;
+  spotLight.intensity = 2;
   spotLight.target = floor && skybox;
   spotLight.angle = THREE.MathUtils.degToRad(30);
   spotLight.penumbra = 1.0;
